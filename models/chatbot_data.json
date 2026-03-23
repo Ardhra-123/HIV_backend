@@ -1,0 +1,176 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "hello",
+                "hi",
+                "hey",
+                "good morning",
+                "good evening",
+                "howdy",
+                "hi there",
+                "greetings",
+                "is anyone there?",
+                "what's up"
+            ],
+            "responses": [
+                "Hello! Welcome to HIVCare Companion. How can I help you today?",
+                "Hi there! I'm here to help you with any questions about HIV, testing, or prevention.",
+                "Hello! Feel free to ask me anything about HIV and related health topics. I'm here to support you."
+            ]
+        },
+        {
+            "tag": "what_is_hiv",
+            "patterns": [
+                "what is hiv",
+                "explain hiv",
+                "hiv definition",
+                "what does hiv stand for",
+                "tell me about hiv",
+                "background on hiv"
+            ],
+            "responses": [
+                "**HIV (Human Immunodeficiency Virus)** attacks the body's immune system, specifically CD4 cells. If untreated, it can lead to AIDS.\n\n🔑 Key facts:\n• HIV is treatable — people on ART live long, healthy lives\n• Undetectable = Untransmittable (U=U)\n• Early testing is vital",
+                "HIV stands for Human Immunodeficiency Virus. It weakens the immune system by destroying CD4 cells. Modern treatment (ART) allows people with HIV to live nearly normal life expectancies."
+            ]
+        },
+        {
+            "tag": "how_hiv_spreads",
+            "patterns": [
+                "how does hiv spread",
+                "how is hiv transmitted",
+                "hiv transmission",
+                "how do you get hiv",
+                "ways hiv spreads",
+                "can you get hiv from",
+                "is it contagious"
+            ],
+            "responses": [
+                "HIV is transmitted through body fluids: blood, semen, vaginal fluids, and breast milk.\n\n🔴 **High-risk routes:**\n• Unprotected sex (anal, vaginal)\n• Sharing needles or syringes\n• Mother to child (during birth or breastfeeding)\n\n✅ **HIV is NOT spread through:**\n• Hugging, kissing, or handshakes\n• Sharing food, toilets, or insect bites"
+            ]
+        },
+        {
+            "tag": "hiv_symptoms",
+            "patterns": [
+                "hiv symptoms",
+                "signs of hiv",
+                "how to know if i have hiv",
+                "early symptoms",
+                "symptoms after infection",
+                "feeling sick after exposure"
+            ],
+            "responses": [
+                "Early HIV symptoms (2–4 weeks) may include fever, sore throat, swollen lymph nodes, and rash. However, many people have **NO symptoms for years.**\n\n**An HIV test is the only way to know your status.** If you're concerned about an exposure, please get tested."
+            ]
+        },
+        {
+            "tag": "hiv_testing",
+            "patterns": [
+                "hiv test",
+                "get tested",
+                "where to test",
+                "hiv testing",
+                "how to test",
+                "test locations",
+                "free test",
+                "rapid test",
+                "how long after exposure to test"
+            ],
+            "responses": [
+                "HIV testing is quick, often free, and confidential at clinics, health centers, and through self-test kits.\n\n🩺 **When to test:**\n• Every 6-12 months if sexually active\n• After any potential exposure\n\nYou can use our '**Nearby Healthcare**' feature to find the closest testing facility! ✅"
+            ]
+        },
+        {
+            "tag": "hiv_prevention",
+            "patterns": [
+                "prevent hiv",
+                "how to prevent",
+                "hiv prevention",
+                "stay safe",
+                "protect myself",
+                "safe sex",
+                "avoiding infection"
+            ],
+            "responses": [
+                "Prevention strategies include:\n\n✅ Use condoms consistently\n✅ Get tested regularly\n✅ PrEP — a daily pill for HIV-negative people at risk\n✅ PEP — emergency medication within 72 hours of exposure\n✅ U=U — if your partner is on ART and undetectable, they cannot transmit HIV."
+            ]
+        },
+        {
+            "tag": "prep",
+            "patterns": [
+                "prep",
+                "pre-exposure prophylaxis",
+                "prevention pill",
+                "prep medication",
+                "daily pill to prevent hiv"
+            ],
+            "responses": [
+                "**PrEP (Pre-Exposure Prophylaxis)** is a daily pill for HIV-negative people that reduces the risk of HIV infection by up to 99% when taken as prescribed. Talk to your doctor if you're interested in starting PrEP! 💊"
+            ]
+        },
+        {
+            "tag": "treatment",
+            "patterns": [
+                "hiv treatment",
+                "hiv medication",
+                "art",
+                "antiretroviral",
+                "hiv cure",
+                "treatments",
+                "daily pills"
+            ],
+            "responses": [
+                "**Treatment (ART — Antiretroviral Therapy):**\n\n💊 ART is a combination of medications taken daily\n• It doesn't cure HIV but controls it effectively\n• People on ART can reach an \"undetectable\" viral load\n• Undetectable = Untransmittable (U=U)\n\nWith treatment, people with HIV live long, healthy lives. 🌿"
+            ]
+        },
+        {
+            "tag": "undetectable",
+            "patterns": [
+                "undetectable",
+                "u=u",
+                "cannot pass hiv",
+                "viral load",
+                "transmission risk on art"
+            ],
+            "responses": [
+                "**U=U (Undetectable = Untransmittable)** 🎉\n\nWhen a person with HIV takes ART consistently and reaches an undetectable viral load, they **CANNOT** sexually transmit HIV to their partner. This is a scientific fact and highly empowering for those on treatment! 💙"
+            ]
+        },
+        {
+            "tag": "support",
+            "patterns": [
+                "need help",
+                "support",
+                "counseling",
+                "helpline",
+                "mental health",
+                "support groups",
+                "lonely",
+                "scared",
+                "anxious"
+            ],
+            "responses": [
+                "You are **not alone.** 💙 Many people live full, meaningful lives with HIV. Support is available through:\n\n• HIV counselling at your local clinic\n• Online support communities\n• Our '**Emotional Support**' section in this app\n\nWould you like to talk about how you're feeling?"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "bye",
+                "goodbye",
+                "see you",
+                "take care",
+                "later",
+                "thanks",
+                "that's all",
+                "nothing else"
+            ],
+            "responses": [
+                "Take care! Remember, knowledge is power. Stay safe! 👋",
+                "Goodbye! I'm always here if you have more questions. Stay healthy. 🌿",
+                "Bye! Have a wonderful day. Take care of yourself."
+            ]
+        }
+    ]
+}
