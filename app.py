@@ -41,7 +41,12 @@ try:
     patient_encoders = joblib.load(os.path.join(BASE_DRIVE_PATH, "india_label_encoders.pkl"))
 
     # 4. Nearest Health Centers (CSV data)
-    centers_df = pd.read_csv(os.path.join(BASE_DRIVE_PATH, "health_centers_clean.csv"))
+    csv_path = os.path.join(BASE_DRIVE_PATH, "health_centers_clean.csv")
+    if os.path.exists(csv_path):
+        centers_df = pd.read_csv(csv_path)
+        print("✅ Health centers data loaded successfully!")
+    else:
+        print(f"⚠️ Warning: {csv_path} not found. Healthcare centers feature will be disabled.")
 
     # 5. Chatbot Data & Vectorizer
     with open(os.path.join(BASE_DRIVE_PATH, "chatbot_data.json"), "r") as f:
@@ -145,8 +150,11 @@ def detect_emotion(req: EmotionRequest):
 @app.post("/nearest-centers")
 def get_nearest_centers(req: LocationRequest):
     try:
-        if 'centers_df' not in globals():
-            raise HTTPException(status_code=503, detail="Health centers data not loaded on server.")
+        if 'centers_df' not in globals() or centers_df is None:
+            raise HTTPException(
+                status_code=503, 
+                detail="Health centers data not loaded on server. Please ensure 'health_centers_clean.csv' is in the 'models' folder."
+            )
         
         df = centers_df.copy()
         df['distance_km'] = df.apply(
@@ -173,15 +181,15 @@ def chatbot_response(req: ChatRequest):
         max_sim = similarities[best_match_idx]
         
         # Threshold for relevant answers
-        if max_sim > 0.2:
+        if max_sim > 0.3:
             intent = pattern_to_intent[best_match_idx]
             response = random.choice(intent['responses'])
             return {"response": response, "status": "success"}
         else:
             defaults = [
-                "I'm not sure I understand that. Could you rephrase your question about HIV?",
-                "I'm here to help with HIV-related questions. What would you like to know?",
-                "I don't have information on that specific topic. Try asking about HIV testing, prevention, or treatment."
+                "I can only answer questions related to HIV, testing, prevention, and treatment. Please ask me something related to HIV. 🌿",
+                "I'm specialized in HIV-related topics only. Try asking about HIV symptoms, testing, prevention, or treatment.",
+                "That's outside my area. I'm here to help with HIV questions only. What would you like to know about HIV? 💙"
             ]
             return {"response": random.choice(defaults), "status": "success"}
             
