@@ -181,7 +181,7 @@ def chatbot_response(req: ChatRequest):
         max_sim = similarities[best_match_idx]
         
         # Threshold for relevant answers
-        if max_sim > 0.3:
+        if max_sim > 0.7:
             intent = pattern_to_intent[best_match_idx]
             response = random.choice(intent['responses'])
             return {"response": response, "status": "success"}
