@@ -1,12 +1,26 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import pandas as pd
 import numpy as np
 import joblib
 import os
 import math
+import json
+import random
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 app = FastAPI(title="Care4HIV ML Backend API")
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # --- MODEL LOADING ---
 BASE_DRIVE_PATH = "models"
@@ -29,7 +43,22 @@ try:
     # 4. Nearest Health Centers (CSV data)
     centers_df = pd.read_csv(os.path.join(BASE_DRIVE_PATH, "health_centers_clean.csv"))
 
-    print("✅ All models and datasets loaded successfully!")
+    # 5. Chatbot Data & Vectorizer
+    with open(os.path.join(BASE_DRIVE_PATH, "chatbot_data.json"), "r") as f:
+        chatbot_data = json.load(f)
+    
+    # Flatten patterns for vectorization
+    all_patterns = []
+    pattern_to_intent = []
+    for intent in chatbot_data['intents']:
+        for pattern in intent['patterns']:
+            all_patterns.append(pattern)
+            pattern_to_intent.append(intent)
+            
+    vectorizer = TfidfVectorizer()
+    X_patterns = vectorizer.fit_transform(all_patterns)
+
+    print("✅ All models, datasets, and chatbot logic loaded successfully!")
 except Exception as e:
     print(f"⚠️ Warning: Could not load models. Error: {e}")
 
@@ -62,6 +91,9 @@ class LocationRequest(BaseModel):
     latitude: float
     longitude: float
     top_n: int = 5
+
+class ChatRequest(BaseModel):
+    message: str
 
 # --- API ENDPOINTS ---
 
@@ -126,6 +158,33 @@ def get_nearest_centers(req: LocationRequest):
         results = nearest[['Facility Name', 'Facility Type', 'State Name', 'District Name', 'Latitude', 'Longitude', 'distance_km']].to_dict(orient='records')
         
         return {"centers": results, "status": "success"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/chatbot")
+def chatbot_response(req: ChatRequest):
+    try:
+        # Vectorize user message
+        user_vec = vectorizer.transform([req.message.lower()])
+        
+        # Calculate similarity
+        similarities = cosine_similarity(user_vec, X_patterns).flatten()
+        best_match_idx = np.argmax(similarities)
+        max_sim = similarities[best_match_idx]
+        
+        # Threshold for relevant answers
+        if max_sim > 0.2:
+            intent = pattern_to_intent[best_match_idx]
+            response = random.choice(intent['responses'])
+            return {"response": response, "status": "success"}
+        else:
+            defaults = [
+                "I'm not sure I understand that. Could you rephrase your question about HIV?",
+                "I'm here to help with HIV-related questions. What would you like to know?",
+                "I don't have information on that specific topic. Try asking about HIV testing, prevention, or treatment."
+            ]
+            return {"response": random.choice(defaults), "status": "success"}
+            
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
