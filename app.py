@@ -282,73 +282,115 @@ def chatbot_response(req: ChatRequest):
 LAB_MARKERS = [
     {
         "name": "CD4 Count",
-        "patterns": [r"cd4[\s\+\-]*(?:count|cells|absolute)?[:\s]*([\d]+)", r"cd4[:\s]+([\d]+)"],
+        "patterns": [
+            r"cd4[\s\+\-]*(?:count|cells|absolute)?[\s:=]*([\d,]+)(?:\s|$)",
+            r"cd[\s]*4[\s:=]*([\d,]+)(?:\s|$)",
+            r"t[\s\-]*helper[\s]*cells[\s:=]*([\d,]+)(?:\s|$)",
+            r"absolute[\s]*cd4[\s:=]*([\d,]+)(?:\s|$)"
+        ],
         "unit": "cells/mm³",
         "normal": "500 – 1,500",
         "interpret": lambda v: "✅ Normal immune function" if v >= 500 else ("⚠️ Moderate immune suppression — ART recommended" if v >= 200 else "🚨 Severe immune suppression (AIDS-defining) — urgent ART needed")
     },
     {
         "name": "Viral Load",
-        "patterns": [r"viral[\s]*load[:\s]*([\d,]+)", r"hiv[\s\-]*(?:1)?[\s]*rna[:\s]*([\d,]+)", r"copies[/\s]*ml[:\s]*([\d,]+)"],
+        "patterns": [
+            r"viral[\s]*load[\s:=]*([\d,]+)",
+            r"hiv[\s\-]*(?:1)?[\s]*rna[\s:=]*([\d,]+)",
+            r"copies[/\s]*ml[\s:=]*([\d,]+)",
+            r"hiv[\s]*quantitative[\s:=]*([\d,]+)",
+            r"(?:result|value)[\s:=]*([\d,]+)[\s]*copies",
+            r"(<[\s]*\d+)" # Target < 50 or < 20 directly if it says "Target Not Detected < 20 copies"
+        ],
         "unit": "copies/mL",
         "normal": "< 50 (Undetectable)",
-        "interpret": lambda v: "✅ Undetectable — U=U applies! 🎉" if v < 50 else ("⚠️ Low but detectable — continue ART" if v < 200 else ("⚠️ Moderate — discuss with doctor" if v < 10000 else "🚨 High viral load — ART adjustment may be needed"))
+        "interpret": lambda v: "✅ Undetectable — U=U applies! 🎉" if float(v) < 50 else ("⚠️ Low but detectable — continue ART" if float(v) < 200 else ("⚠️ Moderate — discuss with doctor" if float(v) < 10000 else "🚨 High viral load — ART adjustment may be needed"))
     },
     {
         "name": "Hemoglobin (Hb)",
-        "patterns": [r"h(?:ae)?moglobin[:\s]*([\d\.]+)", r"\bhb\b[:\s]*([\d\.]+)", r"\bhgb\b[:\s]*([\d\.]+)"],
+        "patterns": [
+            r"h(?:ae)?moglobin[\s:=]*([\d\.]+)",
+            r"\bhb\b[\s:=]*([\d\.]+)",
+            r"\bhgb\b[\s:=]*([\d\.]+)"
+        ],
         "unit": "g/dL",
         "normal": "12.0 – 17.5",
-        "interpret": lambda v: "✅ Normal" if 12.0 <= v <= 17.5 else ("⚠️ Low (Anemia) — may cause fatigue; consult doctor" if v < 12.0 else "⚠️ Elevated — consult doctor")
+        "interpret": lambda v: "✅ Normal" if 12.0 <= float(v) <= 17.5 else ("⚠️ Low (Anemia) — may cause fatigue; consult doctor" if float(v) < 12.0 else "⚠️ Elevated — consult doctor")
     },
     {
         "name": "WBC (White Blood Cells)",
-        "patterns": [r"wbc[:\s]*([\d\.]+)", r"white[\s]*blood[\s]*cell[s]?[:\s]*([\d\.]+)", r"total[\s]*wbc[:\s]*([\d\.]+)"],
+        "patterns": [
+            r"wbc[\s:=]*([\d\.]+)",
+            r"white[\s]*blood[\s]*cell[s]?[\s:=]*([\d\.]+)",
+            r"total[\s]*w(?:hite)?[\s]*b(?:lood)?[\s]*c(?:ell)?[\s:=]*([\d\.]+)",
+            r"tlc[\s:=]*([\d\.]+)"
+        ],
         "unit": "× 10³/µL",
         "normal": "4.0 – 11.0",
-        "interpret": lambda v: "✅ Normal" if 4.0 <= v <= 11.0 else ("⚠️ Low (Leukopenia) — immune system may be weakened" if v < 4.0 else "⚠️ Elevated — possible infection or inflammation")
+        "interpret": lambda v: "✅ Normal" if 4.0 <= float(v) <= 11.0 else ("⚠️ Low (Leukopenia) — immune system may be weakened" if float(v) < 4.0 else "⚠️ Elevated — possible infection or inflammation")
     },
     {
         "name": "Platelet Count",
-        "patterns": [r"platelet[s]?[:\s]*([\d\.]+)", r"plt[:\s]*([\d\.]+)"],
+        "patterns": [
+            r"platelet[s]?[\s:=]*([\d\.]+)",
+            r"\bplt\b[\s:=]*([\d\.]+)"
+        ],
         "unit": "× 10³/µL",
         "normal": "150 – 400",
-        "interpret": lambda v: "✅ Normal" if 150 <= v <= 400 else ("⚠️ Low (Thrombocytopenia) — increased bleeding risk" if v < 150 else "⚠️ Elevated — consult doctor")
+        "interpret": lambda v: "✅ Normal" if 150 <= float(v) <= 400 else ("⚠️ Low (Thrombocytopenia) — increased bleeding risk" if float(v) < 150 else "⚠️ Elevated — consult doctor")
     },
     {
         "name": "ALT (Liver Function)",
-        "patterns": [r"\balt\b[:\s]*([\d\.]+)", r"sgpt[:\s]*([\d\.]+)", r"alanine[:\s]*transaminase[:\s]*([\d\.]+)"],
+        "patterns": [
+            r"\balt\b[\s:=]*([\d\.]+)",
+            r"\bsgpt\b[\s:=]*([\d\.]+)",
+            r"alanine[\s]*transaminase[\s:=]*([\d\.]+)"
+        ],
         "unit": "U/L",
         "normal": "7 – 56",
-        "interpret": lambda v: "✅ Normal" if 7 <= v <= 56 else ("⚠️ Elevated — possible liver stress from ART; consult doctor" if v > 56 else "ℹ️ Low — usually not clinically significant")
+        "interpret": lambda v: "✅ Normal" if 7 <= float(v) <= 56 else ("⚠️ Elevated — possible liver stress from ART; consult doctor" if float(v) > 56 else "ℹ️ Low — usually not clinically significant")
     },
     {
         "name": "AST (Liver Function)",
-        "patterns": [r"\bast\b[:\s]*([\d\.]+)", r"sgot[:\s]*([\d\.]+)", r"aspartate[:\s]*transaminase[:\s]*([\d\.]+)"],
+        "patterns": [
+            r"\bast\b[\s:=]*([\d\.]+)",
+            r"\bsgot\b[\s:=]*([\d\.]+)",
+            r"aspartate[\s]*transaminase[\s:=]*([\d\.]+)"
+        ],
         "unit": "U/L",
         "normal": "10 – 40",
-        "interpret": lambda v: "✅ Normal" if 10 <= v <= 40 else ("⚠️ Elevated — possible liver issue; monitor closely" if v > 40 else "ℹ️ Low — usually not significant")
+        "interpret": lambda v: "✅ Normal" if 10 <= float(v) <= 40 else ("⚠️ Elevated — possible liver issue; monitor closely" if float(v) > 40 else "ℹ️ Low — usually not significant")
     },
     {
         "name": "Creatinine (Kidney Function)",
-        "patterns": [r"creatinine[:\s]*([\d\.]+)", r"serum[\s]*creatinine[:\s]*([\d\.]+)"],
+        "patterns": [
+            r"creatinine[\s:=]*([\d\.]+)",
+            r"serum[\s]*creatinine[\s:=]*([\d\.]+)"
+        ],
         "unit": "mg/dL",
         "normal": "0.7 – 1.3",
-        "interpret": lambda v: "✅ Normal kidney function" if 0.7 <= v <= 1.3 else ("⚠️ Elevated — possible kidney issue (some ART drugs affect kidneys)" if v > 1.3 else "ℹ️ Low — usually not significant")
+        "interpret": lambda v: "✅ Normal kidney function" if 0.7 <= float(v) <= 1.3 else ("⚠️ Elevated — possible kidney issue (some ART drugs affect kidneys)" if float(v) > 1.3 else "ℹ️ Low — usually not significant")
     },
     {
         "name": "Total Cholesterol",
-        "patterns": [r"total[\s]*cholesterol[:\s]*([\d\.]+)", r"cholesterol[:\s]*([\d\.]+)"],
+        "patterns": [
+            r"total[\s]*cholesterol[\s:=]*([\d\.]+)",
+            r"(?<!hdl )(?<!ldl )cholesterol[\s:=]*([\d\.]+)"
+        ],
         "unit": "mg/dL",
         "normal": "< 200",
-        "interpret": lambda v: "✅ Desirable" if v < 200 else ("⚠️ Borderline high" if v < 240 else "🚨 High — dietary changes and monitoring needed")
+        "interpret": lambda v: "✅ Desirable" if float(v) < 200 else ("⚠️ Borderline high" if float(v) < 240 else "🚨 High — dietary changes and monitoring needed")
     },
     {
         "name": "Blood Sugar (Glucose)",
-        "patterns": [r"(?:fasting)?[\s]*(?:blood)?[\s]*(?:sugar|glucose)[\s]*(?:fasting)?[:\s]*([\d\.]+)", r"fbs[:\s]*([\d\.]+)", r"rbs[:\s]*([\d\.]+)"],
+        "patterns": [
+            r"(?:fasting)?[\s]*(?:blood)?[\s]*(?:sugar|glucose)[\s]*(?:fasting)?[\s:=]*([\d\.]+)",
+            r"\bfbs\b[\s:=]*([\d\.]+)",
+            r"\brbs\b[\s:=]*([\d\.]+)"
+        ],
         "unit": "mg/dL",
         "normal": "70 – 100 (fasting)",
-        "interpret": lambda v: "✅ Normal" if 70 <= v <= 100 else ("⚠️ Pre-diabetic range (if fasting)" if v <= 126 else "🚨 Diabetic range — consult doctor")
+        "interpret": lambda v: "✅ Normal" if 70 <= float(v) <= 100 else ("⚠️ Pre-diabetic range (if fasting)" if float(v) <= 126 else "🚨 Diabetic range — consult doctor")
     }
 ]
 
