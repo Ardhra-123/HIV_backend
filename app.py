@@ -255,7 +255,7 @@ def chatbot_response(req: ChatRequest):
         
         print(f"💬 Chatbot: User='{user_msg}' | Emotion={emotion} | Max Similarity={max_sim:.4f}")
 
-        if max_sim > 0.3:
+        if max_sim > 0.15:
             intent = pattern_to_intent[best_match_idx]
             response = random.choice(intent['responses'])
             return {
