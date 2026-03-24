@@ -3,16 +3,9 @@
         {
             "tag": "greeting",
             "patterns": [
-                "hello",
-                "hi",
-                "hey",
-                "good morning",
-                "good evening",
-                "howdy",
-                "hi there",
-                "greetings",
-                "is anyone there?",
-                "what's up"
+                "hello", "hi", "hey", "good morning", "good evening", "howdy",
+                "hi there", "greetings", "is anyone there?", "what's up",
+                "good afternoon", "namaste"
             ],
             "responses": [
                 "Hello! Welcome to HIVCare Companion. How can I help you today?",
@@ -23,12 +16,9 @@
         {
             "tag": "what_is_hiv",
             "patterns": [
-                "what is hiv",
-                "explain hiv",
-                "hiv definition",
-                "what does hiv stand for",
-                "tell me about hiv",
-                "background on hiv"
+                "what is hiv", "explain hiv", "hiv definition", "what does hiv stand for",
+                "tell me about hiv", "background on hiv", "hiv meaning",
+                "define hiv", "hiv full form", "what is human immunodeficiency virus"
             ],
             "responses": [
                 "**HIV (Human Immunodeficiency Virus)** attacks the body's immune system, specifically CD4 cells. If untreated, it can lead to AIDS.\n\n🔑 Key facts:\n• HIV is treatable — people on ART live long, healthy lives\n• Undetectable = Untransmittable (U=U)\n• Early testing is vital",
@@ -36,135 +26,487 @@
             ]
         },
         {
-            "tag": "how_hiv_spreads",
+            "tag": "what_is_aids",
             "patterns": [
-                "how does hiv spread",
-                "how is hiv transmitted",
-                "hiv transmission",
-                "how do you get hiv",
-                "ways hiv spreads",
-                "can you get hiv from",
-                "is it contagious"
+                "what is aids", "aids meaning", "aids definition", "what does aids stand for",
+                "explain aids", "define aids", "aids full form",
+                "difference between hiv and aids", "hiv vs aids"
             ],
             "responses": [
-                "HIV is transmitted through body fluids: blood, semen, vaginal fluids, and breast milk.\n\n🔴 **High-risk routes:**\n• Unprotected sex (anal, vaginal)\n• Sharing needles or syringes\n• Mother to child (during birth or breastfeeding)\n\n✅ **HIV is NOT spread through:**\n• Hugging, kissing, or handshakes\n• Sharing food, toilets, or insect bites"
+                "**AIDS (Acquired Immunodeficiency Syndrome)** is the most advanced stage of HIV infection.\n\n🔑 Key points:\n• AIDS occurs when CD4 count drops below **200 cells/mm³**\n• Not everyone with HIV develops AIDS — ART prevents progression\n• With proper treatment, most people with HIV never reach the AIDS stage\n• AIDS is diagnosed when a person has one or more opportunistic infections along with very low CD4 count"
+            ]
+        },
+        {
+            "tag": "hiv_types",
+            "patterns": [
+                "types of hiv", "hiv 1 hiv 2", "hiv-1 vs hiv-2", "hiv type 1",
+                "hiv type 2", "different types of hiv", "hiv strains",
+                "which type of hiv is more common"
+            ],
+            "responses": [
+                "There are **two main types** of HIV:\n\n🔬 **HIV-1:** The most common type worldwide (>95% of cases). It is the type usually referred to when people say 'HIV.'\n\n🔬 **HIV-2:** Found mainly in West Africa. It progresses more slowly and is less easily transmitted, but still requires treatment.\n\nBoth types can lead to AIDS if untreated, and both are managed with ART (though some drugs are more effective against HIV-1)."
+            ]
+        },
+        {
+            "tag": "hiv_stages",
+            "patterns": [
+                "stages of hiv", "hiv stages", "hiv progression", "acute hiv",
+                "chronic hiv", "clinical latency", "how hiv progresses",
+                "stage 1 hiv", "stage 2 hiv", "stage 3 hiv"
+            ],
+            "responses": [
+                "HIV progresses through **3 stages** if untreated:\n\n**Stage 1 — Acute HIV Infection (2–4 weeks)**\n• Flu-like symptoms: fever, rash, sore throat, fatigue\n• Very high viral load → highly contagious\n\n**Stage 2 — Chronic/Clinical Latency (may last 10+ years)**\n• Virus reproduces at low levels\n• Often NO symptoms\n• Still transmissible\n\n**Stage 3 — AIDS**\n• CD4 count drops below 200 cells/mm³\n• Severe immune damage\n• Opportunistic infections occur\n\n💊 **ART can stop progression at ANY stage and is most effective when started early.**"
+            ]
+        },
+        {
+            "tag": "how_hiv_spreads",
+            "patterns": [
+                "how does hiv spread", "how is hiv transmitted", "hiv transmission",
+                "how do you get hiv", "ways hiv spreads", "can you get hiv from",
+                "is it contagious", "hiv spread through", "modes of transmission",
+                "how hiv is passed", "routes of hiv transmission"
+            ],
+            "responses": [
+                "HIV is transmitted through body fluids: blood, semen, vaginal fluids, and breast milk.\n\n🔴 **High-risk routes:**\n• Unprotected sex (anal, vaginal)\n• Sharing needles or syringes\n• Mother to child (during birth or breastfeeding)\n\n✅ **HIV is NOT spread through:**\n• Hugging, kissing, or handshakes\n• Sharing food, toilets, or insect bites\n• Sweat, tears, or saliva\n• Swimming pools or public places"
             ]
         },
         {
             "tag": "hiv_symptoms",
             "patterns": [
-                "hiv symptoms",
-                "signs of hiv",
-                "how to know if i have hiv",
-                "early symptoms",
-                "symptoms after infection",
-                "feeling sick after exposure"
+                "hiv symptoms", "signs of hiv", "how to know if i have hiv",
+                "early symptoms", "symptoms after infection", "feeling sick after exposure",
+                "hiv rash", "hiv fever", "first signs of hiv",
+                "do i have hiv", "hiv signs and symptoms"
             ],
             "responses": [
-                "Early HIV symptoms (2–4 weeks) may include fever, sore throat, swollen lymph nodes, and rash. However, many people have **NO symptoms for years.**\n\n**An HIV test is the only way to know your status.** If you're concerned about an exposure, please get tested."
+                "Early HIV symptoms (2–4 weeks) may include:\n• Fever and chills\n• Sore throat and fatigue\n• Swollen lymph nodes\n• Rash (flat, red, sometimes with small bumps)\n• Night sweats and muscle aches\n\n⚠️ However, many people have **NO symptoms for years.**\n\n**An HIV test is the ONLY way to know your status.** Symptoms alone cannot confirm or rule out HIV. If you're concerned about an exposure, please get tested."
             ]
         },
         {
             "tag": "hiv_testing",
             "patterns": [
-                "hiv test",
-                "get tested",
-                "where to test",
-                "hiv testing",
-                "how to test",
-                "test locations",
-                "free test",
-                "rapid test",
-                "how long after exposure to test"
+                "hiv test", "get tested", "where to test", "hiv testing",
+                "how to test", "test locations", "free test", "rapid test",
+                "how long after exposure to test", "testing methods",
+                "blood test for hiv", "self test", "home test kit",
+                "elisa test", "western blot", "hiv test accuracy"
             ],
             "responses": [
-                "HIV testing is quick, often free, and confidential at clinics, health centers, and through self-test kits.\n\n🩺 **When to test:**\n• Every 6-12 months if sexually active\n• After any potential exposure\n\nYou can use our '**Nearby Healthcare**' feature to find the closest testing facility! ✅"
+                "HIV testing is quick, often free, and confidential.\n\n🩺 **Types of Tests:**\n• **Rapid/Antibody Test:** Results in 20 minutes (finger prick or oral swab)\n• **Antigen/Antibody Test:** Detects HIV sooner (blood draw)\n• **NAT (Nucleic Acid Test):** Most accurate, detects virus directly\n\n📅 **When to Test:**\n• Every 6-12 months if sexually active\n• 2-4 weeks after potential exposure (for NAT)\n• 3 months after exposure (for antibody tests — window period)\n\nYou can use our '**Nearby Healthcare**' feature to find the closest testing facility! ✅"
+            ]
+        },
+        {
+            "tag": "window_period",
+            "patterns": [
+                "window period", "how soon can hiv be detected",
+                "when to test after exposure", "hiv test accuracy timeline",
+                "false negative hiv test", "too early to test",
+                "how long before hiv shows up in test"
+            ],
+            "responses": [
+                "The **window period** is the time between HIV exposure and when a test can detect it:\n\n⏰ **NAT (Nucleic Acid Test):** 10–33 days\n⏰ **Antigen/Antibody Test (blood draw):** 18–45 days\n⏰ **Rapid Antibody Test:** 23–90 days\n\n💡 If you test negative during the window period, **retest after 3 months** to be sure. A negative result after 90 days is considered conclusive for most tests."
             ]
         },
         {
             "tag": "hiv_prevention",
             "patterns": [
-                "prevent hiv",
-                "how to prevent",
-                "hiv prevention",
-                "stay safe",
-                "protect myself",
-                "safe sex",
-                "avoiding infection"
+                "prevent hiv", "how to prevent", "hiv prevention",
+                "stay safe", "protect myself", "safe sex",
+                "avoiding infection", "reduce risk", "prevention methods",
+                "how to stay hiv negative", "protection from hiv"
             ],
             "responses": [
-                "Prevention strategies include:\n\n✅ Use condoms consistently\n✅ Get tested regularly\n✅ PrEP — a daily pill for HIV-negative people at risk\n✅ PEP — emergency medication within 72 hours of exposure\n✅ U=U — if your partner is on ART and undetectable, they cannot transmit HIV."
+                "Prevention strategies include:\n\n✅ Use condoms consistently and correctly\n✅ Get tested regularly — know your status\n✅ **PrEP** — a daily pill for HIV-negative people at risk (up to 99% effective)\n✅ **PEP** — emergency medication within 72 hours of exposure\n✅ Don't share needles or syringes\n✅ **U=U** — if your partner is on ART and undetectable, they cannot transmit HIV\n✅ Male circumcision reduces risk by ~60%"
             ]
         },
         {
             "tag": "prep",
             "patterns": [
-                "prep",
-                "pre-exposure prophylaxis",
-                "prevention pill",
-                "prep medication",
-                "daily pill to prevent hiv"
+                "prep", "pre-exposure prophylaxis", "prevention pill",
+                "prep medication", "daily pill to prevent hiv",
+                "how does prep work", "who should take prep",
+                "prep side effects", "is prep safe", "truvada", "descovy"
             ],
             "responses": [
-                "**PrEP (Pre-Exposure Prophylaxis)** is a daily pill for HIV-negative people that reduces the risk of HIV infection by up to 99% when taken as prescribed. Talk to your doctor if you're interested in starting PrEP! 💊"
+                "**PrEP (Pre-Exposure Prophylaxis)** is a daily pill for HIV-negative people:\n\n💊 **How it works:** Contains antiretroviral drugs that block HIV from establishing infection\n📊 **Effectiveness:** Up to 99% when taken daily as prescribed\n👤 **Who should consider PrEP:**\n• People with an HIV-positive partner\n• Those who don't consistently use condoms\n• People who inject drugs\n\n⚠️ **Side effects** are usually mild: nausea, headache (resolves in weeks)\n🩺 Requires regular follow-up every 3 months for HIV testing and kidney function\n\nTalk to your doctor about starting PrEP!"
+            ]
+        },
+        {
+            "tag": "pep",
+            "patterns": [
+                "pep", "post-exposure prophylaxis", "emergency hiv prevention",
+                "exposed to hiv", "after exposure", "needle stick",
+                "72 hours", "what to do after exposure",
+                "i think i was exposed to hiv"
+            ],
+            "responses": [
+                "**PEP (Post-Exposure Prophylaxis)** is emergency HIV prevention:\n\n⏰ **Must be started within 72 hours** of possible exposure (the sooner the better)\n💊 **Duration:** 28-day course of antiretroviral medicines\n📊 **Effectiveness:** Very high when started promptly\n\n🆘 **When to consider PEP:**\n• Unprotected sex with someone who may have HIV\n• Condom break during sex\n• Sharing needles\n• Sexual assault\n• Occupational exposure (needle stick)\n\n**Go to the nearest emergency room or HIV clinic immediately if you think you've been exposed.**"
             ]
         },
         {
             "tag": "treatment",
             "patterns": [
-                "hiv treatment",
-                "hiv medication",
-                "art",
-                "antiretroviral",
-                "hiv cure",
-                "treatments",
-                "daily pills"
+                "hiv treatment", "hiv medication", "art treatment",
+                "antiretroviral", "hiv cure", "treatments",
+                "daily pills", "how to treat hiv", "medicine for hiv",
+                "antiretroviral therapy", "art medication", "hiv drugs"
             ],
             "responses": [
-                "**Treatment (ART — Antiretroviral Therapy):**\n\n💊 ART is a combination of medications taken daily\n• It doesn't cure HIV but controls it effectively\n• People on ART can reach an \"undetectable\" viral load\n• Undetectable = Untransmittable (U=U)\n\nWith treatment, people with HIV live long, healthy lives. 🌿"
+                "**Treatment (ART — Antiretroviral Therapy):**\n\n💊 ART is a combination of medications taken daily\n• It doesn't cure HIV but controls it effectively\n• People on ART can reach an \"undetectable\" viral load\n• Undetectable = Untransmittable (U=U)\n\n📋 **ART Benefits:**\n• Protects your immune system\n• Prevents progression to AIDS\n• Reduces transmission risk to zero when undetectable\n• Allows a normal, healthy lifespan\n\n⏰ **Start ART as soon as possible after diagnosis** — early treatment has the best outcomes. 🌿"
+            ]
+        },
+        {
+            "tag": "art_drug_classes",
+            "patterns": [
+                "types of art drugs", "art drug classes", "nrti", "nnrti",
+                "protease inhibitors", "integrase inhibitors", "insti",
+                "dolutegravir", "tenofovir", "efavirenz",
+                "hiv medication types", "classes of antiretrovirals"
+            ],
+            "responses": [
+                "ART drugs are grouped into several **classes** based on how they block HIV:\n\n💊 **NRTIs (Nucleoside Reverse Transcriptase Inhibitors)**\n• Examples: Tenofovir, Lamivudine, Emtricitabine\n• Block an enzyme HIV needs to copy itself\n\n💊 **NNRTIs (Non-Nucleoside RTIs)**\n• Examples: Efavirenz, Rilpivirine\n• Also block reverse transcriptase but differently\n\n💊 **INSTIs (Integrase Strand Transfer Inhibitors)** ⭐ Preferred\n• Examples: Dolutegravir, Bictegravir\n• Block HIV from inserting its DNA into your cells\n\n💊 **PIs (Protease Inhibitors)**\n• Examples: Atazanavir, Darunavir\n• Prevent new HIV particles from maturing\n\nMost modern regimens combine 2-3 drugs in a **single daily pill**."
+            ]
+        },
+        {
+            "tag": "art_side_effects",
+            "patterns": [
+                "art side effects", "hiv medication side effects",
+                "side effects of treatment", "antiretroviral side effects",
+                "does art make you sick", "art making me nauseous",
+                "hiv pills side effects", "problems with hiv medication"
+            ],
+            "responses": [
+                "**Common ART Side Effects** (usually mild and temporary):\n\n🤢 **Short-term (first few weeks):**\n• Nausea and diarrhea\n• Headache and fatigue\n• Dizziness or vivid dreams (with some drugs)\n\n⚠️ **Less common / long-term:**\n• Weight gain\n• Changes in cholesterol or blood sugar\n• Kidney or liver effects (monitored via blood tests)\n• Bone density changes\n\n✅ **What to do:**\n• Don't stop ART without consulting your doctor\n• Side effects often improve within 2-4 weeks\n• If side effects persist, your doctor can switch you to a different regimen\n• Regular blood work monitors for any issues"
+            ]
+        },
+        {
+            "tag": "art_adherence",
+            "patterns": [
+                "missed dose", "forgot my medication", "skipped art",
+                "medication adherence", "why is adherence important",
+                "what happens if i miss art", "taking art regularly",
+                "tips to remember medication", "i keep forgetting my pills"
+            ],
+            "responses": [
+                "**ART Adherence** is critical for treatment success:\n\n⚠️ **Why it matters:**\n• Missing doses lets HIV multiply and potentially become drug-resistant\n• Drug resistance can limit future treatment options\n• Consistent use keeps viral load undetectable\n\n💡 **Tips to stay on track:**\n• Take your pills at the same time every day\n• Use phone alarms or our **Pill Reminder** feature in this app!\n• Keep a small pill case with you\n• Link it to a daily routine (e.g., brushing teeth)\n\n🔄 **If you missed a dose:**\n• Take it as soon as you remember\n• If it's almost time for your next dose, skip the missed one\n• **Never take a double dose**\n• Tell your doctor if you frequently miss doses"
+            ]
+        },
+        {
+            "tag": "cd4_count",
+            "patterns": [
+                "cd4 count", "what is cd4", "cd4 cells", "t cells",
+                "normal cd4 count", "low cd4", "cd4 range",
+                "what does cd4 mean", "cd4 test", "cd4 level",
+                "how many cd4 is normal"
+            ],
+            "responses": [
+                "**CD4 Count** measures the number of CD4 immune cells in your blood:\n\n📊 **Normal Ranges:**\n• **Healthy person:** 500 – 1,500 cells/mm³\n• **HIV+ (immune still strong):** 350 – 500 cells/mm³\n• **Weakened immune system:** 200 – 350 cells/mm³\n• **AIDS diagnosis:** Below 200 cells/mm³\n\n🔑 **What your CD4 count tells you:**\n• How strong your immune system is\n• Whether ART is working\n• When to start or change treatment\n\n📈 On ART, CD4 counts typically **rise** over months/years.\n🩺 Tested every 3-6 months via blood test."
+            ]
+        },
+        {
+            "tag": "viral_load",
+            "patterns": [
+                "viral load", "hiv viral load", "undetectable viral load",
+                "how much virus", "viral load test", "copies per ml",
+                "what is viral load", "high viral load", "low viral load",
+                "viral load meaning"
+            ],
+            "responses": [
+                "**Viral Load** measures the amount of HIV in your blood:\n\n📊 **Key Levels:**\n• **Undetectable:** < 50 copies/mL (goal of treatment!) ✅\n• **Low:** 50 – 200 copies/mL\n• **Moderate:** 200 – 10,000 copies/mL\n• **High:** > 100,000 copies/mL\n\n🎯 **Goal:** Reach and maintain an **undetectable** viral load\n🔬 **Why it matters:**\n• Undetectable = Untransmittable (U=U)\n• Shows ART is working\n• Protects your immune system\n\n📅 Tested via blood test every 3-6 months. It usually takes 3-6 months on ART to become undetectable."
             ]
         },
         {
             "tag": "undetectable",
             "patterns": [
-                "undetectable",
-                "u=u",
-                "cannot pass hiv",
-                "viral load",
-                "transmission risk on art"
+                "undetectable", "u=u", "cannot pass hiv",
+                "transmission risk on art", "undetectable untransmittable",
+                "can i transmit hiv if undetectable",
+                "what does undetectable mean", "u equals u"
             ],
             "responses": [
-                "**U=U (Undetectable = Untransmittable)** 🎉\n\nWhen a person with HIV takes ART consistently and reaches an undetectable viral load, they **CANNOT** sexually transmit HIV to their partner. This is a scientific fact and highly empowering for those on treatment! 💙"
+                "**U=U (Undetectable = Untransmittable)** 🎉\n\nWhen a person with HIV takes ART consistently and reaches an undetectable viral load (< 50 copies/mL), they **CANNOT** sexually transmit HIV to their partner.\n\n🔬 This is backed by **multiple large-scale studies** (PARTNER, PARTNER2, HPTN 052) with zero transmissions from undetectable partners.\n\n💡 Key points:\n• Must stay on ART consistently\n• Regular viral load monitoring is needed\n• Applies to vaginal and anal sex\n• U=U does NOT mean cured — ART must continue\n\nThis is one of the most empowering facts in modern HIV science! 💙"
+            ]
+        },
+        {
+            "tag": "hiv_pregnancy",
+            "patterns": [
+                "hiv pregnancy", "pregnant with hiv", "hiv mother to child",
+                "can hiv be passed to baby", "pregnancy and hiv",
+                "breastfeeding hiv", "vertical transmission",
+                "having a baby with hiv", "safe pregnancy hiv",
+                "pmtct", "prevent mother to child"
+            ],
+            "responses": [
+                "**HIV & Pregnancy:**\n\n👶 With proper care, the risk of passing HIV to your baby can be reduced to **less than 1%**.\n\n✅ **Key steps:**\n• Start or continue ART throughout pregnancy\n• Achieve undetectable viral load before delivery\n• Your doctor may recommend C-section if viral load is high\n• Baby receives preventive ART medication for 4-6 weeks after birth\n\n🍼 **Breastfeeding:**\n• In some countries, formula feeding is recommended\n• In resource-limited settings, exclusive breastfeeding with ART is considered safe\n• Discuss with your doctor\n\n🩺 Get tested early in pregnancy — it's part of routine prenatal care."
+            ]
+        },
+        {
+            "tag": "hiv_children",
+            "patterns": [
+                "hiv in children", "pediatric hiv", "child with hiv",
+                "hiv testing for children", "baby born with hiv",
+                "children and hiv", "can children get hiv"
+            ],
+            "responses": [
+                "**HIV in Children:**\n\n👶 Children can acquire HIV primarily through mother-to-child transmission (during pregnancy, birth, or breastfeeding).\n\n🩺 **Testing:**\n• Babies born to HIV+ mothers are tested using **NAT (PCR)** at birth, 4-6 weeks, and 4-6 months\n• Antibody tests are NOT reliable for babies under 18 months (mother's antibodies may still be present)\n\n💊 **Treatment:**\n• Children can take ART — pediatric formulations are available (syrups and dissolvable tablets)\n• Early ART dramatically improves outcomes\n• Regular monitoring of growth, development, and viral load\n\n💙 With treatment, children with HIV can live full, healthy lives."
+            ]
+        },
+        {
+            "tag": "hiv_nutrition",
+            "patterns": [
+                "hiv diet", "nutrition for hiv", "what to eat with hiv",
+                "food for hiv patients", "diet plan hiv",
+                "best foods for immune system", "hiv and nutrition",
+                "eating healthy with hiv", "immune boosting foods"
+            ],
+            "responses": [
+                "**Nutrition for People Living with HIV:**\n\n🥗 **What to eat:**\n• **Protein:** Eggs, beans, lentils, chicken, fish — helps repair immune cells\n• **Fruits & Vegetables:** Rich in vitamins A, C, E and antioxidants\n• **Whole Grains:** Brown rice, ragi, whole wheat — sustained energy\n• **Healthy Fats:** Nuts, seeds, olive oil\n\n🚫 **What to avoid:**\n• Raw or undercooked meat/eggs (infection risk)\n• Excessive alcohol (interferes with ART and immune function)\n• Highly processed/junk food\n\n💧 **Stay hydrated** — drink 8-10 glasses of water daily\n\n💊 Some ART medications work better with food — check with your doctor."
+            ]
+        },
+        {
+            "tag": "hiv_exercise",
+            "patterns": [
+                "hiv exercise", "can i exercise with hiv",
+                "working out with hiv", "physical activity hiv",
+                "gym with hiv", "sports with hiv", "yoga for hiv"
+            ],
+            "responses": [
+                "**Exercise & HIV:**\n\n✅ Exercise is **highly recommended** for people with HIV!\n\n💪 **Benefits:**\n• Improves immune function and CD4 count\n• Reduces stress, anxiety, and depression\n• Helps manage ART side effects (weight gain, fatigue)\n• Improves cardiovascular health\n• Boosts energy and sleep quality\n\n🏃 **Recommended activities:**\n• Walking or jogging (30 min, 5x/week)\n• Yoga and stretching\n• Light strength training\n• Swimming\n\n⚠️ Start gradually and listen to your body. Stay hydrated and consult your doctor before intense exercise programs."
+            ]
+        },
+        {
+            "tag": "opportunistic_infections",
+            "patterns": [
+                "opportunistic infections", "oi", "infections with hiv",
+                "tuberculosis hiv", "pneumonia hiv", "candidiasis",
+                "what infections can i get with hiv", "hiv complications",
+                "kaposi sarcoma", "toxoplasmosis"
+            ],
+            "responses": [
+                "**Opportunistic Infections (OIs)** occur when the immune system is weakened by HIV:\n\n🦠 **Common OIs:**\n• **Tuberculosis (TB)** — most common worldwide, especially in India\n• **Pneumocystis Pneumonia (PCP)** — lung infection at low CD4\n• **Candidiasis (Thrush)** — fungal infection in mouth/throat\n• **Toxoplasmosis** — brain infection from parasites\n• **Kaposi's Sarcoma** — cancer causing skin lesions\n• **Cryptococcal Meningitis** — brain/spinal infection\n\n✅ **Prevention:**\n• Start ART early to keep CD4 count high\n• Prophylactic medications (e.g., Cotrimoxazole) when CD4 is low\n• Regular screening for TB\n• Good hygiene and food safety"
+            ]
+        },
+        {
+            "tag": "hiv_tb",
+            "patterns": [
+                "hiv and tb", "tuberculosis and hiv", "tb co-infection",
+                "hiv tb treatment", "tb testing with hiv",
+                "can hiv cause tb", "tb with hiv"
+            ],
+            "responses": [
+                "**HIV & TB Co-infection:**\n\n⚠️ TB is the **leading cause of death** among people with HIV worldwide.\n\n🔬 **Key facts:**\n• HIV increases TB risk by 15-22 times\n• TB can occur at any CD4 count but is more common when CD4 is low\n• Symptoms: persistent cough (>2 weeks), fever, night sweats, weight loss\n\n💊 **Treatment:**\n• TB and HIV can be treated **simultaneously**\n• TB treatment: 6-9 months of anti-TB drugs\n• ART should be started within 2-8 weeks of starting TB treatment\n• Drug interactions exist — your doctor will manage the regimen\n\n🩺 **All HIV patients should be screened for TB regularly.**"
+            ]
+        },
+        {
+            "tag": "hiv_stigma",
+            "patterns": [
+                "hiv stigma", "discrimination", "people judge me",
+                "afraid to tell", "stigma and hiv", "social stigma",
+                "being rejected", "hiv discrimination at work",
+                "rights of hiv patients", "hiv and society"
+            ],
+            "responses": [
+                "**Dealing with HIV Stigma:**\n\nStigma is one of the biggest challenges — but it is based on **misinformation**, not facts.\n\n💙 **Remember:**\n• HIV is a manageable medical condition, not a moral judgment\n• You have legal rights — discrimination based on HIV status is illegal in India (HIV/AIDS Act, 2017)\n• U=U means you cannot transmit HIV when on treatment\n\n🤝 **Coping strategies:**\n• Connect with support groups (online and local)\n• Educate those around you with facts\n• Seek counseling if stigma affects your mental health\n• You decide who to disclose to — it's YOUR choice\n\nYou are not defined by your diagnosis. You are strong. 💪"
+            ]
+        },
+        {
+            "tag": "disclosure",
+            "patterns": [
+                "how to tell partner", "hiv disclosure", "telling family about hiv",
+                "should i disclose", "when to disclose hiv status",
+                "telling someone about hiv", "partner doesn't know",
+                "afraid to tell my partner"
+            ],
+            "responses": [
+                "**HIV Disclosure:**\n\n💙 Deciding when and how to disclose is a personal decision.\n\n✅ **Tips:**\n• Choose a private, calm setting\n• Have factual information ready (U=U, treatment effectiveness)\n• Consider having a counselor present\n• Start with people you trust most\n\n⚖️ **Legal considerations (India):**\n• The HIV/AIDS (Prevention and Control) Act, 2017 protects your confidentiality\n• Healthcare providers cannot disclose your status without consent\n• Disclosure to sexual partners is encouraged for their health\n\n🤝 Many people react more supportively than expected. Support groups can share their disclosure experiences."
+            ]
+        },
+        {
+            "tag": "living_with_hiv",
+            "patterns": [
+                "living with hiv", "daily life with hiv", "how to live with hiv",
+                "relationship with hiv", "dating with hiv", "work with hiv",
+                "normal life with hiv", "can i live normally with hiv",
+                "life expectancy hiv"
+            ],
+            "responses": [
+                "**Living with HIV** in the modern era:\n\n🌟 With consistent ART, people with HIV can live **nearly the same lifespan** as those without HIV.\n\n✅ **Daily life:**\n• Take your ART medication daily\n• Attend regular check-ups (every 3-6 months)\n• Eat well, exercise, manage stress\n\n💑 **Relationships:**\n• You can have a healthy romantic and sexual life\n• U=U — undetectable means untransmittable\n• Safe conception is possible with medical guidance\n\n💼 **Work:**\n• You can continue working in any profession\n• No employer can fire you based on HIV status (legally protected)\n\nYou can live a full, beautiful life. 🌿"
+            ]
+        },
+        {
+            "tag": "hiv_mental_health",
+            "patterns": [
+                "depression hiv", "anxiety hiv", "mental health",
+                "feeling depressed", "hiv and depression",
+                "coping with hiv", "stress and hiv",
+                "emotional impact of hiv", "i feel hopeless"
+            ],
+            "responses": [
+                "**HIV & Mental Health:**\n\n💙 It's completely normal to feel anxious, sad, or overwhelmed after an HIV diagnosis.\n\n📊 People with HIV are **2-3x more likely** to experience depression. This is treatable.\n\n🧠 **Coping strategies:**\n• Talk to a counselor or therapist\n• Join a support group\n• Stay physically active\n• Maintain social connections\n• Practice mindfulness or meditation\n• Use our **Emotional Support** feature in this app\n\n⚠️ **Seek help if you experience:**\n• Persistent sadness for more than 2 weeks\n• Loss of interest in activities\n• Difficulty sleeping or eating\n• Thoughts of self-harm\n\nYou are not alone. Help is available. 💙"
+            ]
+        },
+        {
+            "tag": "hiv_aging",
+            "patterns": [
+                "hiv and aging", "growing old with hiv", "long-term effects of hiv",
+                "aging with hiv", "comorbidities hiv",
+                "hiv long term", "elderly with hiv"
+            ],
+            "responses": [
+                "**HIV & Aging:**\n\nThanks to ART, many people with HIV are now living into their 60s, 70s, and beyond.\n\n⚠️ **Long-term considerations:**\n• **Cardiovascular disease:** Higher risk — monitor cholesterol and blood pressure\n• **Bone health:** Risk of osteoporosis — calcium, vitamin D, weight-bearing exercise\n• **Kidney and liver health:** Regular monitoring needed\n• **Cognitive health:** Some risk of HIV-associated neurocognitive disorder\n• **Cancer screening:** Stay up-to-date with age-appropriate screenings\n\n✅ **What to do:**\n• Regular comprehensive health check-ups\n• Stay on ART consistently\n• Healthy lifestyle: diet, exercise, no smoking\n• Open communication with your healthcare team"
+            ]
+        },
+        {
+            "tag": "drug_interactions",
+            "patterns": [
+                "drug interactions", "art and other medicines",
+                "can i take paracetamol with art", "hiv medication interactions",
+                "herbal medicine and art", "supplements with art",
+                "mixing medications with hiv treatment"
+            ],
+            "responses": [
+                "**ART Drug Interactions:**\n\n⚠️ ART can interact with other medications. Always inform your doctor about ALL medicines you take.\n\n🚫 **Known interactions:**\n• **St. John's Wort** — can reduce ART effectiveness (AVOID)\n• **Some antibiotics** (rifampicin) — may need dose adjustment\n• **Antacids/PPIs** — can reduce absorption of some ART drugs\n• **Some seizure medications**\n• **Hormonal contraceptives** — some ART affects their effectiveness\n\n✅ **Safe in general:**\n• Paracetamol (Acetaminophen) — usually safe\n• Most common painkillers (check with doctor)\n\n🩺 **Always consult your doctor or pharmacist** before starting any new medication, supplement, or herbal remedy."
+            ]
+        },
+        {
+            "tag": "hiv_cure_research",
+            "patterns": [
+                "hiv cure", "will hiv be cured", "cure research",
+                "hiv vaccine", "latest hiv research", "is there hope for a cure",
+                "functional cure", "hiv gene therapy", "berlin patient"
+            ],
+            "responses": [
+                "**HIV Cure Research:**\n\n🔬 While there's no cure yet, significant progress is being made:\n\n🌟 **Key developments:**\n• **Berlin & London Patients:** Cured through stem cell transplants (not scalable but proves cure is possible)\n• **Gene Therapy (CRISPR):** Editing CCR5 gene to make cells HIV-resistant — in clinical trials\n• **Broadly Neutralizing Antibodies:** Can target multiple HIV strains\n• **Therapeutic Vaccines:** Aim to train the immune system to control HIV without ART\n• **Kick and Kill:** Strategy to flush out hidden HIV reservoirs\n\n💊 **Current reality:**\n• ART is highly effective and allows a normal life\n• Research is ongoing worldwide\n• Several vaccine candidates are in clinical trials\n\nThere is reason for optimism! 🌿"
+            ]
+        },
+        {
+            "tag": "hiv_travel",
+            "patterns": [
+                "travel with hiv", "hiv and travel", "medication while traveling",
+                "travel restrictions hiv", "can i travel with hiv",
+                "carrying art on flights", "hiv entry restrictions"
+            ],
+            "responses": [
+                "**HIV & Travel:**\n\n✈️ **Most countries have NO entry restrictions** for people with HIV.\n\n💊 **Medication tips:**\n• Carry enough ART for the entire trip + extra days\n• Keep medication in original packaging with your name\n• Carry a doctor's letter (in English) confirming your prescription\n• Pack medication in carry-on luggage, not checked bags\n• Adjust timing for time zone changes\n\n⚠️ **A few countries still have restrictions** — check entry requirements before booking.\n\n🩺 Visit a travel health clinic before traveling for vaccinations and advice specific to your destination."
+            ]
+        },
+        {
+            "tag": "lab_reports",
+            "patterns": [
+                "lab report", "blood test results", "understanding my report",
+                "what do my results mean", "hiv lab results",
+                "blood work hiv", "my test results", "reading lab report",
+                "explain my report", "help with lab results"
+            ],
+            "responses": [
+                "**Understanding HIV Lab Reports:**\n\n📋 **Key values in your report:**\n\n🔬 **CD4 Count (cells/mm³):**\n• Normal: 500-1,500 | Below 200 = AIDS\n\n🔬 **Viral Load (copies/mL):**\n• Goal: Undetectable (<50) | High: >100,000\n\n🔬 **Hemoglobin (g/dL):**\n• Normal: 12-16 (women), 14-18 (men)\n\n🔬 **WBC Count (cells/µL):**\n• Normal: 4,000-11,000\n\n🔬 **Liver Function (ALT/AST):**\n• Normal: 7-56 U/L | Elevated = possible ART side effect\n\n🔬 **Kidney Function (Creatinine):**\n• Normal: 0.7-1.3 mg/dL\n\n📸 **You can also upload a photo of your report** and I'll help analyze the values for you!"
+            ]
+        },
+        {
+            "tag": "insurance_costs",
+            "patterns": [
+                "hiv treatment cost", "free art", "art cost india",
+                "government scheme hiv", "insurance for hiv",
+                "affordable treatment", "free medication",
+                "naco", "art centre near me"
+            ],
+            "responses": [
+                "**HIV Treatment Costs & Access in India:**\n\n🆓 **Free ART is available** through the Indian Government's **National AIDS Control Programme (NACP):**\n• Over 600+ ART centres across India\n• Free first-line and second-line ART\n• Free CD4 and viral load testing\n• Free counseling services\n\n📋 **How to access:**\n1. Visit your nearest **government hospital ART centre**\n2. Get tested (free)\n3. Register and start treatment\n\n💊 **NACO** (National AIDS Control Organisation) runs the programme.\n\n📞 **National AIDS Helpline:** 1097 (toll-free, 24/7, confidential)\n\nUse our **Nearby Healthcare** feature to find the closest ART centre!"
+            ]
+        },
+        {
+            "tag": "condom_use",
+            "patterns": [
+                "how to use condom", "condom effectiveness", "condoms and hiv",
+                "do condoms prevent hiv", "condom broke", "female condom",
+                "types of condoms", "protection during sex"
+            ],
+            "responses": [
+                "**Condoms & HIV Prevention:**\n\n✅ When used correctly and consistently, condoms are **up to 98% effective** against HIV.\n\n📋 **Proper use:**\n• Check expiry date\n• Open carefully — don't use teeth or sharp objects\n• Pinch the tip to remove air\n• Roll all the way down\n• Use water-based lubricant (oil-based damages latex)\n• Use a new condom for each act of sex\n\n🚨 **If a condom breaks:**\n• Consider PEP within 72 hours if HIV risk exists\n• Get tested after the window period\n\n👩 **Female condoms** are also available and effective."
+            ]
+        },
+        {
+            "tag": "hiv_india_stats",
+            "patterns": [
+                "hiv in india", "hiv statistics india", "how many people have hiv in india",
+                "india hiv data", "hiv prevalence india",
+                "hiv epidemic india", "aids cases in india"
+            ],
+            "responses": [
+                "**HIV in India (Key Statistics):**\n\n📊 **Overview:**\n• Estimated **24 lakh (2.4 million)** people living with HIV\n• Adult prevalence: ~0.2%\n• India has the **3rd largest HIV population** globally\n\n📉 **Progress:**\n• New infections declined by ~37% since 2010\n• AIDS-related deaths declined by ~66% since peak\n• Over 17 lakh people are on ART\n\n🏥 **Key programmes:**\n• NACO runs 600+ ART centres\n• Free testing and treatment\n• 1097 helpline (24/7, confidential)\n\nIndia has made significant progress, but awareness and testing remain crucial."
             ]
         },
         {
             "tag": "support",
             "patterns": [
-                "need help",
-                "support",
-                "counseling",
-                "helpline",
-                "mental health",
-                "support groups",
-                "lonely",
-                "scared",
-                "anxious"
+                "need help", "support", "counseling", "helpline",
+                "support groups", "lonely", "scared", "anxious",
+                "i need someone to talk to", "feeling alone",
+                "where can i get help", "hiv support network"
             ],
             "responses": [
-                "You are **not alone.** 💙 Many people live full, meaningful lives with HIV. Support is available through:\n\n• HIV counselling at your local clinic\n• Online support communities\n• Our '**Emotional Support**' section in this app\n\nWould you like to talk about how you're feeling?"
+                "You are **not alone.** 💙 Many people live full, meaningful lives with HIV. Support is available:\n\n📞 **Helplines:**\n• National AIDS Helpline: **1097** (toll-free, 24/7)\n• iCall: 9152987821 (mental health support)\n\n🤝 **Support options:**\n• HIV counselling at your local ART centre\n• Online communities and peer support groups\n• Our **Emotional Support** section in this app\n\nWould you like to talk about how you're feeling?"
+            ]
+        },
+        {
+            "tag": "capabilities",
+            "patterns": [
+                "what can you do", "how can you help", "your features",
+                "what's your purpose", "show me what you can do",
+                "help me", "what are your capabilities"
+            ],
+            "responses": [
+                "I can help you with:\n\n💬 **HIV Q&A** — symptoms, testing, prevention, treatment, ART\n📊 **Lab Reports** — upload a photo and I'll analyze your results\n🧠 **Emotional Support** — mood detection and coping strategies\n📍 **Nearby Clinics** — find HIV testing and ART centres near you\n⏰ **Reminders** — pill and testing reminders\n📈 **Risk Prediction** — AI-powered HIV risk assessment\n\nJust ask me anything HIV-related! 🌿"
+            ]
+        },
+        {
+            "tag": "who_created_you",
+            "patterns": [
+                "who made you", "who created you", "your developer",
+                "are you a human", "what are you"
+            ],
+            "responses": [
+                "I am **HIVCare Companion**, an AI assistant developed to support and educate people about HIV. I am part of the Care4HIV ecosystem.",
+                "I was created as an AI companion for the Care4HIV project to provide 24/7 reliable HIV information and support."
+            ]
+        },
+        {
+            "tag": "how_are_you",
+            "patterns": [
+                "how are you", "how are you doing", "are you okay", "how's it going"
+            ],
+            "responses": [
+                "I'm doing well, thank you for asking! Ready to help you with any HIV-related questions. How about you?",
+                "I'm functioning perfectly and here to support you! What's on your mind today?"
+            ]
+        },
+        {
+            "tag": "emergency",
+            "patterns": [
+                "emergency", "i'm in trouble", "medical emergency",
+                "immediate help", "suicide", "hurt myself",
+                "i want to die", "self harm", "help me now"
+            ],
+            "responses": [
+                "**If you're in an immediate medical or mental health emergency, please call your local emergency services (108 or 112) or go to the nearest hospital immediately.** 🆘\n\n📞 **Helplines:**\n• Emergency: **112**\n• Ambulance: **108**\n• National AIDS Helpline: **1097**\n• Mental Health (iCall): **9152987821**\n• Vandrevala Foundation: **1860-2662-345**\n\nYou are valuable, and help is available. Please reach out now."
+            ]
+        },
+        {
+            "tag": "confidentiality",
+            "patterns": [
+                "is this private", "my data", "confidential",
+                "anonymous", "who can see this", "is this secure",
+                "privacy", "data security"
+            ],
+            "responses": [
+                "Your privacy is our priority. 🔒\n\n• Your conversations are **not stored** on any server\n• No personal information is collected\n• The app uses **encryption** for data security\n• Under Indian law (HIV/AIDS Act, 2017), your HIV status is legally protected\n\nYou can use this app with complete confidence."
             ]
         },
         {
             "tag": "goodbye",
             "patterns": [
-                "bye",
-                "goodbye",
-                "see you",
-                "take care",
-                "later",
-                "thanks",
-                "that's all",
-                "nothing else"
+                "bye", "goodbye", "see you", "take care", "later",
+                "thanks", "that's all", "nothing else", "thank you"
             ],
             "responses": [
                 "Take care! Remember, knowledge is power. Stay safe! 👋",
