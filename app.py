@@ -257,51 +257,43 @@ def get_nearest_centers(req: LocationRequest):
 @app.post("/chatbot")
 def chatbot_response(req: ChatRequest):
     try:
-        # 1. Detect emotion from the message to guide the user's emotional support
+        # Detect emotion from the message
         text_tfidf = tfidf_vectorizer.transform([req.message])
         emotion = emotion_model.predict(text_tfidf)[0]
         
-        user_msg = req.message.strip()
+        # Vectorize user message for Q&A
+        user_msg = req.message.lower().strip()
+        user_vec = vectorizer.transform([user_msg])
+        
+        # Calculate similarity
+        similarities = cosine_similarity(user_vec, X_patterns).flatten()
+        best_match_idx = np.argmax(similarities)
+        max_sim = similarities[best_match_idx]
+        
+        print(f"💬 Chatbot: User='{user_msg}' | Emotion={emotion} | Max Similarity={max_sim:.4f}")
 
-        # 2. Check if Gemini was securely loaded
-        if not gemini_model:
+        if max_sim > 0.15:
+            intent = pattern_to_intent[best_match_idx]
+            response = random.choice(intent['responses'])
             return {
-                "response": "Developer: The **Google Gemini API Key** is missing!\n\nPlease open the backend folder, create a `.env` file, and add your API key like this:\n`GEMINI_API_KEY=your_key_here`\n\nOnce added, restart the backend or redeploy to Render to enable the smart AI chatbot.",
+                "response": response, 
                 "emotion": emotion,
                 "status": "success"
             }
-
-        # 3. Prompt Engineering for Specialized HIV AI
-        prompt = f"""
-        You are 'HIVCare Companion', an empathetic, highly knowledgeable medical AI assistant exclusively dedicated to answering questions about HIV, AIDS, sexual health, testing, prevention (PrEP/PEP), treatments (ART), and related mental/physical health topics.
-        
-        USER MESSAGE: "{user_msg}"
-        
-        STRICT RULES:
-        1. If the user message is a greeting or general polite chat, respond warmly and ask how you can help them with HIV or health matters.
-        2. If the user message is about HIV, AIDS, sexual health, or emotional support related to health, answer it accurately and compassionately. Keep the answer clear, concise (under 150 words), and formatted nicely.
-        3. If the user message is COMPLETELY UNRELATED to health, HIV, medicine, or emotional well-being (e.g., coding, politics, math, writing essays, movie recommendations), you MUST politely refuse to answer and remind them that you are specialized only in HIV and health.
-        4. NEVER break character. Do not mention that you are a large language model created by Google.
-        """
-
-        response = gemini_model.generate_content(prompt)
-        bot_text = response.text.strip()
-        
-        print(f"💬 Gemini Chatbot: User='{user_msg}' | Emotion={emotion}")
-
-        return {
-            "response": bot_text, 
-            "emotion": emotion,
-            "status": "success"
-        }
+        else:
+            defaults = [
+                "I am an **HIV-specialized assistant** and can only answer questions about HIV, AIDS, testing, prevention, treatment (ART), and related health topics.\n\nPlease ask me something related to HIV. For example:\n• What is HIV?\n• How is HIV prevented?\n• What does my CD4 count mean?\n• Tell me about PrEP",
+                "That question is outside my area of expertise. I'm trained **exclusively on HIV-related topics** including symptoms, testing, prevention, treatment, lab reports, and emotional support.\n\nTry asking about HIV! 🌿",
+                "I can only help with HIV, AIDS, ART, testing, and related health queries. I cannot answer general or non-medical questions.\n\n💡 Try: 'What are the symptoms of HIV?' or 'Explain my viral load' 💙"
+            ]
+            return {
+                "response": random.choice(defaults), 
+                "emotion": emotion,
+                "status": "success"
+            }
             
     except Exception as e:
-        print("Chatbot Error:", str(e))
-        return {
-            "response": "I'm having a little trouble connecting to my AI brain right now. Please try asking again in a moment.",
-            "emotion": "neutral",
-            "status": "error"
-        }
+        raise HTTPException(status_code=500, detail=str(e))
 
 # ── Lab Report Value Definitions ─────────────────────────────────────────────
 LAB_MARKERS = [
